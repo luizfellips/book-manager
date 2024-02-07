@@ -38,7 +38,6 @@ export default {
 </script>
 
 <style>
-/* Add your styles for the navigation bar */
 .Navigation {
     background-color: #333;
     color: white;
