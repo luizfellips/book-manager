@@ -8,8 +8,6 @@ use App\Models\NavigationItem;
 class NavigationController extends Controller
 {
     public function index() {
-        $navigationItems = NavigationItem::all();
-
-        return response()->json($navigationItems);
+        return response()->json(NavigationItem::all());
     }
 }

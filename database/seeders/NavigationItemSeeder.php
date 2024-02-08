@@ -15,17 +15,17 @@ class NavigationItemSeeder extends Seeder
     {
         NavigationItem::create([
             'title' => 'Home',
-            'url' => '/',
+            'route' => 'index',
         ]);
 
         NavigationItem::create([
             'title' => 'Books',
-            'url' => '/books',
+            'route' => 'books.index',
         ]);
 
         NavigationItem::create([
             'title' => 'About',
-            'url' => '/about',
+            'route' => 'about',
         ]);
     }
 }

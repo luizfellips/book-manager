@@ -10,9 +10,11 @@ class BookController extends Controller
 {
     public function index() {
         $books = Book::query()->paginate(4);
+        $route = route('books.index');
 
         return Inertia::render('Books', [
             'books' => $books,
+            'route' => $route,
         ]);
     }
 }

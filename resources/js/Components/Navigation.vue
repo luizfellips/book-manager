@@ -3,7 +3,7 @@
         <h1 class="Navigation-Title">Book Manager</h1>
         <ul>
             <li v-for="item in navigationItems" :key="item.id">
-                <inertia-link :href="item.url">{{ item.title }} </inertia-link>
+                <inertia-link :href="getRoute(item.route)">{{ item.title }} </inertia-link>
             </li>
         </ul>
     </nav>
@@ -27,11 +27,15 @@ export default {
     methods: {
         async fetchNavigationItems() {
             try {
-                const response = await axios.get('/navigation-items');
+                const response = await axios.post(route('navigation'));
                 this.navigationItems = response.data;
             } catch (error) {
                 console.error('Error fetching navigation items:', error);
             }
+        },
+
+        getRoute(url) {
+            return route(url);
         },
     },
 };

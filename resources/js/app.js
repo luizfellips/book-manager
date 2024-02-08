@@ -1,5 +1,5 @@
 import { createApp, h } from 'vue'
-import { createInertiaApp, Link } from '@inertiajs/vue3'
+import { createInertiaApp, Link, router } from '@inertiajs/vue3'
 
 createInertiaApp({
   resolve: name => {
@@ -8,6 +8,7 @@ createInertiaApp({
   },
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
+      .use(router)
       .use(plugin)
       .component('inertia-link', Link)
       .mount(el)

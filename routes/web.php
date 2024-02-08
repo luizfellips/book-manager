@@ -16,8 +16,8 @@ use App\Http\Controllers\NavigationController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/books', [BookController::class, 'index']);
-Route::get('/about', [HomeController::class, 'about']);
+Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/books', [BookController::class, 'index'])->name('books.index');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
 
-Route::get('/navigation-items', [NavigationController::class, 'index'])->name('navigation');
+Route::post('/navigation-items', [NavigationController::class, 'index'])->name('navigation');

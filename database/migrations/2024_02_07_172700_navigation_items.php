@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('navigation_items', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('url');
+            $table->string('route');
             $table->timestamps();
         });
     }
