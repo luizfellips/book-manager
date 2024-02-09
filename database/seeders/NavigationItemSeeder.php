@@ -14,18 +14,18 @@ class NavigationItemSeeder extends Seeder
     public function run(): void
     {
         NavigationItem::create([
-            'title' => 'Home',
-            'route' => 'index',
+            'title' => 'Log-in',
+            'route' => 'login',
         ]);
 
         NavigationItem::create([
-            'title' => 'Books',
-            'route' => 'books.index',
+            'title' => 'Register',
+            'route' => 'register',
         ]);
 
         NavigationItem::create([
-            'title' => 'About',
-            'route' => 'about',
+            'title' => 'Dashboard',
+            'route' => 'dashboard',
         ]);
     }
 }

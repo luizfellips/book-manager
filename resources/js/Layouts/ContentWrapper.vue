@@ -12,7 +12,8 @@ export default {
 
 <style>
 .ContentWrapper {
-    padding-inline: 20px;
-    margin-inline: 15px;
+    padding-inline: 50px;
+    margin-inline: 45px;
+    padding-bottom: 150px;
 }
 </style>

@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  ::-webkit-scrollbar-track
+  {
+      background-color: #9357ff;
+  }
+
+  ::-webkit-scrollbar
+  {
+      width: 10px;
+      background-color: #d552e0;
+  }
+
+  ::-webkit-scrollbar-thumb
+  {
+      background-color: #3d2279;
+      border: transparent;
+      border-radius: 15px;
+  }
+
+html {
+    height: 100vh;
+    background: rgb(92,82,255);
+    background: linear-gradient(90deg, rgba(92,82,255,1) 0%, rgba(118,118,255,1) 35%, rgba(148,85,255,1) 100%);
+}
+
+@media only screen and (max-width: 479px) {
+    /* Your styles for screens up to 480px go here */
+    html {
+      /* Example styles for the specified width */
+      width: 100vh;
+    }
+  }
+body {
+    overflow: auto;
+    font-family: Inter, sans-serif;
+    margin:0;
+    padding:0;
+}

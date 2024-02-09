@@ -2,59 +2,68 @@
     <Layout>
         <div class="Books">
             <h1 class="Books-PageTitle">Books</h1>
-            <ul>
-                <li v-for="book in books.data" :key="book.id">
-                    <h2>{{ book.name }}</h2>
-                    <p>Author: {{ book.author }}</p>
-                    <p>Release date: {{ book.release_date }}</p>
-                </li>
-            </ul>
+            <div class="Books-List">
+                <book v-for="book in books.data" :key="book.id" :book="book" />
+            </div>
 
             <!-- Pagination links -->
             <div class="Links">
-                <inertia-link v-if="books.prev_page_url" :href="books.prev_page_url"
-                    class="Link">Previous</inertia-link>
-                <inertia-link v-if="books.next_page_url" :href="books.next_page_url" class="Link">Next</inertia-link>
+                <Link v-if="books.prev_page_url" :href="books.prev_page_url" class="Link">Previous</Link>
+                <Link v-if="books.next_page_url" :href="books.next_page_url" class="Link">Next</Link>
             </div>
         </div>
     </Layout>
 </template>
 
 <script>
+import { Link } from '@inertiajs/vue3';
+import Book from '../Components/Book.vue';
 import Layout from '../Layouts/Layout.vue';
 
 export default {
     props: {
         books: Object, // Inertia.js injects the data as a prop
     },
-    components: { Layout }
+    components: {
+        Layout,
+        Book,
+        Link
+    }
 };
 </script>
 
 <style>
 .Books {
-    font-family: Arial, Helvetica, sans-serif;
-
     .Books-PageTitle {
         font-size: 32px;
+        color: white;
+        font-weight: 200;
+    }
+
+    .Books-List {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 15px;
     }
 
     .Links {
         margin-top: 15px;
         height: 100%;
         padding-block: 15px;
+        display: flex;
+        justify-content: flex-start;
 
         .Link {
-            border: 1px black solid;
+            border-radius: 10px;
             padding: 15px;
             margin-inline: 15px;
             text-decoration: none;
-            color: black;
+            color: rgb(255, 255, 255);
             transition: 0.3s;
         }
 
         .Link:hover {
-            background-color: rgb(142, 240, 215);
+            background-color: rgb(156, 148, 255);
         }
     }
 
