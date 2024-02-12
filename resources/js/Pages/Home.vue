@@ -2,6 +2,7 @@
     <Layout>
         <Hero />
         <div class="Home">
+            <FlashMessage v-if="message" :message="message" />
             <h1>Applications</h1>
             <div class="Applications">
                 <div class="Application-Card">
@@ -25,10 +26,14 @@
 <script>
 import Hero from '../Components/Hero.vue';
 import Layout from '../Layouts/Layout.vue';
+import FlashMessage from '@/Components/FlashMessage.vue';
 
 
 export default {
-    components: { Layout, Hero }
+    props: {
+        message: String,
+    },
+    components: { Layout, Hero, FlashMessage }
 }
 </script>
 
@@ -38,12 +43,9 @@ export default {
         color: white;
         font-weight: 100;
     }
-}
-@media only screen and (max-width: 768px) {
 
-.Applications {
-   gap: 1rem !important;
-}
+
+
 }
 
 .Applications {
@@ -55,7 +57,7 @@ export default {
         border: 2px white solid;
         border-radius: 8px;
         padding: 10px;
-        width: 170px    ;
+        width: 170px;
         text-align: center;
         transition: 0.1s;
         cursor: pointer;

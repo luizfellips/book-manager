@@ -11,9 +11,9 @@
     padding: 4px 8px;
     background-color: #2d3748;
     border: 1px solid transparent;
-    border-radius: 0.375rem;
+    border-radius: 10px;
     font-weight: 600;
-    font-size: 0.75rem;
+    font-size: 1.75rem;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 0.05em;

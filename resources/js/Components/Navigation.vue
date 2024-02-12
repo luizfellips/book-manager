@@ -2,13 +2,14 @@
     <nav class="Navigation">
         <h1 class="Navigation-Title">
             <Link href="/">
-                <ApplicationLogo class="w-20 h-20 fill-current text-gray-500" />
+            <ApplicationLogo class="w-20 h-20 fill-current text-gray-500" />
             </Link>
             Laser
         </h1>
         <ul>
             <li v-for="item in navigationItems" :key="item.id">
-                <Link :href="getRoute(item.route)">{{ item.title }} </Link>
+                <Link :href="getRoute(item.route)" :method="getItemMethod(item.route)">{{
+                    item.title }} </Link>
             </li>
         </ul>
     </nav>
@@ -40,6 +41,10 @@ export default {
         },
         getRoute(url) {
             return route(url);
+        },
+
+        getItemMethod(route) {
+            return route === 'logout' ? 'post' : undefined;
         },
     },
     components: { Link, ApplicationLogo }
@@ -78,6 +83,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     .Navigation-Title {
         font-size: 2em;
         margin: 0;

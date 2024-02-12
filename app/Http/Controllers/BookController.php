@@ -17,4 +17,12 @@ class BookController extends Controller
             'route' => $route,
         ]);
     }
+
+    public function show(Book $book) {
+        $books = Book::query()->paginate(4);
+
+        return Inertia::render('ShowBook', [
+            'book' => $book,
+        ]);
+    }
 }

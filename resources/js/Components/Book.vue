@@ -1,6 +1,6 @@
 
 <template>
-    <div class="Book">
+    <Link class="Book" :href="route('books.show', {book: book.id})">
         <div class="Data">
             <h2>{{ book.name }}</h2>
             <p>Author: {{ book.author }}</p>
@@ -9,20 +9,15 @@
         <div class="Image">
             <img src="../../../public/img/placeholder.png" alt="">
         </div>
-
-    </div>
+    </Link>
 </template>
 
-<script>
-export default {
-    props: {
-        book: {
-            type: Object,
-            required: true,
-        },
-    },
-};
+<script setup>
+import { Link } from '@inertiajs/vue3';
+
+const props = defineProps(['book']);
 </script>
+
 
 <style scoped>
 .Book {
@@ -31,9 +26,12 @@ export default {
     border: 1px solid #ccc;
     border-radius: 10px;
     color: white;
+    cursor: pointer;
+    text-decoration: none;
 
     display: flex;
     justify-content: space-between;
+    transition: 0.2s;
 
     .Image {
         img {
@@ -47,5 +45,9 @@ export default {
     h2 {
         font-size: 2em;
     }
+}
+
+.Book:hover {
+    transform: scaleY(1.05);
 }
 </style>

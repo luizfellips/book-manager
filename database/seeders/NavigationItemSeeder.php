@@ -27,5 +27,15 @@ class NavigationItemSeeder extends Seeder
             'title' => 'Dashboard',
             'route' => 'dashboard',
         ]);
+
+        NavigationItem::create([
+            'title' => 'Profile',
+            'route' => 'profile.edit',
+        ]);
+
+        NavigationItem::create([
+            'title' => 'Log-out',
+            'route' => 'logout',
+        ]);
     }
 }

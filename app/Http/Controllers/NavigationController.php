@@ -8,7 +8,7 @@ use App\Models\NavigationItem;
 class NavigationController extends Controller
 {
     public function index() {
-        $navigationItems = NavigationItem::where('route', '!=', 'dashboard')->get();
+        $navigationItems = NavigationItem::whereNotIn('route', ['profile.edit', 'dashboard', 'logout'])->get();
 
         if (auth()->user()) {
             $navigationItems = NavigationItem::whereNotIn('route', ['login', 'register'])->get();
